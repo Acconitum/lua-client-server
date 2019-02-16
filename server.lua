@@ -18,13 +18,6 @@ while true do
         print('New client connected: ' .. clientName);
         newUser = user.__init__(clientName, client); 
         userList.add(newUser);
-        -- while true do
-            -- local line, err = client:receive()
-            -- if line then
-            --     print(line);
-            -- end
-            
-        -- end
     end
     
     if userList.count > 0 then
