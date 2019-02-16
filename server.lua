@@ -14,9 +14,8 @@ while true do
     
     if client then
         local clientName, err = client:receive()
-        local newUser = user.__init__(clientName, client);        
         print('New client connected: ' .. clientName);
-        newUser = user.__init__(clientName, client); 
+        local newUser = user.__init__(clientName, client);        
         userList.add(newUser);
     end
     
