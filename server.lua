@@ -28,10 +28,10 @@ while true do
             end
             if err == "closed" then
                 print(userList.users[i].name .. ' left');
-                userList.users[i].client:close()
-                userList.remove(i);
+                userList.users[i].keepAlive = false;
             end
         end
+        userList.removeDisconnectedUsers();
     end
 end
 

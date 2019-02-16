@@ -7,15 +7,16 @@ function userList.add(user)
     userList.count = userList.count + 1;
 end
 
-function userList.remove(index)
+function userList.removeDisconnectedUsers()
     local newList = {};
     local newListCount = 0;
     for i = 0, userList.count - 1 do
-        if i ~= index then
+        if userList.users[i].keepAlive then
             newList[newListCount] = userList.users[i];
-        end 
+            newListCount = newListCount + 1;
+        end
     end
-    userList.count = userList.count - 1;
+    userList.count = newListCount;
     userList.users = newList;
 end
 
